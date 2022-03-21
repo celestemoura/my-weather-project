@@ -1,0 +1,194 @@
+a {
+  color: black;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #9d53c3;
+}
+
+body {
+  font-family: "Cutive Mono", monospace;
+  font-size: 14px;
+}
+
+form {
+  text-align: left;
+}
+
+img {
+  width: 20px;
+}
+
+.card-body {
+  padding: 0;
+}
+
+.celsius {
+  color: #9d53c3;
+}
+
+.celsius-fahrenheit {
+  font-size: 18px;
+  font-weight: bold;
+  text-align: right;
+}
+
+.celsius-fahrenheit:hover {
+  cursor: pointer;
+}
+
+.main-emoji {
+  font-size: 50px;
+  padding: 5px;
+}
+
+.conditions {
+  position: relative;
+  top: -35px;
+  right: -30px;
+}
+
+.container {
+  background: radial-gradient(
+    circle at 10% 20%,
+    rgb(148, 241, 246) 0%,
+    rgb(148, 189, 246) 100.7%
+  );
+  border: 1px black solid;
+  border-radius: 10px;
+  max-width: 600px;
+  margin-bottom: 40px;
+  margin-top: 40px;
+  padding: 40px;
+  height: 650px;
+}
+
+.current-location {
+  font-family: "Hubballi", cursive;
+  font-size: 40px;
+  letter-spacing: 1px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  text-align: left;
+}
+
+.current-temperature {
+  font-family: "Hubballi", cursive;
+  font-size: 120px;
+}
+
+.date,
+.time {
+  font-family: "Cutive Mono", monospace;
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.fahrenheit:hover {
+  color: #9d53c3;
+}
+
+.location-icon {
+  font-size: 20px;
+}
+
+.location-icon:hover {
+  color: #9d53c3;
+  cursor: pointer;
+}
+
+.movie-of-the-day {
+  background: transparent;
+  border: none;
+  font-family: "Hubballi", cursive;
+  font-size: 14px;
+  position: absolute;
+  text-align: left;
+  top: 580px;
+  width: 200px;
+}
+
+.search-button {
+  background: linear-gradient(
+    109.6deg,
+    rgb(61, 237, 253) 44.2%,
+    rgb(3, 136, 238) 95.6%
+  );
+  border: 1px solid black;
+  border-radius: 10px;
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.1);
+  font-size: 12px;
+  padding: 5px;
+}
+
+.search-button:hover {
+  background: linear-gradient(
+    33.2deg,
+    rgb(157, 147, 247) 30.2%,
+    rgb(117, 176, 247) 61.4%
+  );
+  transition: all 1s ease-in-out;
+}
+
+.search-field {
+  background: transparent;
+  border: 1px solid black;
+  border-radius: 10px;
+  font-size: 12px;
+  padding: 5px;
+}
+
+/* #sky {
+  padding: 0px;
+  text-align: center;
+} */
+
+.search-field:hover {
+  background: white;
+}
+
+.thu {
+  left: -120px;
+  position: relative;
+  text-align: center;
+}
+
+.fri {
+  left: -60px;
+  position: relative;
+  text-align: center;
+}
+
+.sat {
+  left: 0px;
+  position: relative;
+  text-align: center;
+}
+
+.sun {
+  left: 60px;
+  position: relative;
+  text-align: center;
+}
+
+.mon {
+  left: 120px;
+  position: relative;
+  text-align: center;
+}
+
+.today {
+  font-size: 12px;
+  left: -80px;
+  position: relative;
+  text-align: center;
+}
+
+.weekly-forecast {
+  font-size: 18px;
+  position: relative;
+  right: 0px;
+  text-align: center;
+  top: 30px;
+}
