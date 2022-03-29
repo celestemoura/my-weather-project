@@ -20,6 +20,14 @@ img {
   width: 20px;
 }
 
+li {
+  list-style: none;
+}
+
+ul {
+  padding: 0px;
+}
+
 .card-body {
   padding: 0;
 }
@@ -44,18 +52,13 @@ img {
   font-size: 10px;
   left: -38px;
   position: relative;
-  top: 85px;
-}
-
-.main-emoji {
-  font-size: 50px;
-  padding: 5px;
+  top: 75px;
 }
 
 .conditions {
   position: relative;
-  top: -35px;
-  right: -30px;
+  right: -35px;
+  top: -128px;
 }
 
 .container {
@@ -68,9 +71,9 @@ img {
   border-radius: 10px;
   max-width: 600px;
   margin-bottom: 40px;
-  margin-top: 40px;
+  margin-top: 20px;
   padding: 40px;
-  height: 650px;
+  height: fit-content;
 }
 
 .current-location {
@@ -84,14 +87,9 @@ img {
 
 .current-temperature {
   font-family: "Hubballi", cursive;
-  font-size: 120px;
-}
-
-.date,
-.time {
-  font-family: "Cutive Mono", monospace;
-  font-size: 12px;
-  font-weight: 400;
+  font-size: 100px;
+  position: relative;
+  top: -20px;
 }
 
 .fahrenheit:hover {
@@ -107,14 +105,22 @@ img {
   cursor: pointer;
 }
 
+.main-emoji {
+  font-size: 60px;
+  position: relative;
+  right: 60px;
+  top: -50px;
+}
+
 .movie-of-the-day {
   background: transparent;
   border: none;
   font-family: "Hubballi", cursive;
   font-size: 14px;
-  position: absolute;
-  text-align: left;
-  top: 580px;
+  left: -18px;
+  position: relative;
+  text-align: center;
+  top: 25px;
   width: 200px;
 }
 
@@ -148,56 +154,57 @@ img {
   padding: 5px;
 }
 
-/* #sky {
-  padding: 0px;
-  text-align: center;
-} */
-
 .search-field:hover {
   background: white;
 }
 
-.thu {
-  left: -120px;
+.forecast-day-1 {
+  right: -10px;
   position: relative;
   text-align: center;
+  width: fit-content;
 }
 
-.fri {
-  left: -60px;
+.forecast-day-2 {
+  right: -100px;
   position: relative;
   text-align: center;
+  width: fit-content;
 }
 
-.sat {
-  left: 0px;
+.forecast-day-3 {
+  right: -170px;
   position: relative;
   text-align: center;
+  width: fit-content;
 }
 
-.sun {
-  left: 60px;
+.forecast-day-4 {
+  right: -240px;
   position: relative;
   text-align: center;
+  width: fit-content;
 }
 
-.mon {
-  left: 120px;
+.forecast-day-5 {
+  right: -330px;
   position: relative;
   text-align: center;
+  width: fit-content;
 }
 
 .today {
   font-size: 12px;
-  left: -80px;
+  padding: 0px;
   position: relative;
+  right: -10px;
   text-align: center;
+  top: 20px;
 }
 
 .weekly-forecast {
   font-size: 18px;
   position: relative;
-  right: 0px;
   text-align: center;
-  top: 30px;
+  top: 80px;
 }

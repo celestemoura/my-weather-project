@@ -53,7 +53,7 @@ function updateLocationAndWeatherConditions(response) {
   ).innerHTML = `${response.data.name}, ${response.data.sys.country}`;
   document.querySelector("#current-temperature").innerHTML = `${Math.round(
     response.data.main.temp
-  )}°C`;
+  )}°`;
   document.querySelector("#feels-like").innerHTML = `feels like ${Math.round(
     response.data.main.feels_like
   )}°`;
