@@ -1,9 +1,15 @@
 function updateTimestamp(timestamp) {
   let date = new Date(timestamp);
   let hours = date.getHours();
-  // ("0" + now.getHours()).slice(-2)
+  if (hours < 10) {
+    hours = `0${hours}`;
+  }
+
   let minutes = date.getMinutes();
-  // ("0" + now.getMinutes()).slice(-2);
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
+
   let weekday = date.getDay();
   let weekdays = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
   return `${weekdays[weekday]} ${hours}:${minutes}`;
@@ -25,14 +31,20 @@ function updateLocationAndWeatherConditions(response) {
   document.querySelector(
     "#city-country"
   ).innerHTML = `${response.data.name}, ${response.data.sys.country}`;
+
+  celsiusTemp = response.data.main.temp;
   document.querySelector("#current-temperature").innerHTML = `${Math.round(
-    response.data.main.temp
+    celsiusTemp
   )}°`;
+
+  feelsLike = response.data.main.feels_like;
   document.querySelector("#feels-like").innerHTML = `feels like ${Math.round(
-    response.data.main.feels_like
+    feelsLike
   )}°`;
+
   document.querySelector("#sky").innerHTML =
     response.data.weather[0].description;
+
   document.querySelector("#min-max").innerHTML = `${Math.round(
     response.data.main.temp_min
   )}°/${Math.round(response.data.main.temp_max)}°`;
@@ -49,6 +61,10 @@ function updateLocationAndWeatherConditions(response) {
     `https://openweathermap.org/img/wn/${iconCode}@2x.png`
   );
   mainIcon.setAttribute("alt", response.data.weather[0].description);
+
+  // Celsius link is .active on load
+  celsiusTriggerClick.classList.add("active");
+  fahrenheitTriggerClick.classList.remove("active");
 }
 
 function locate(location) {
@@ -63,26 +79,46 @@ function findUser(position) {
   axios.get(apiUrl).then(updateLocationAndWeatherConditions);
 }
 
+function convertToFahrenheit(event) {
+  let fahrenheitTemp = (celsiusTemp * 9) / 5 + 32;
+  let currentTemperature = document.querySelector("#current-temperature");
+  currentTemperature.innerHTML = `${Math.round(fahrenheitTemp)}°`;
+
+  // remove .active from Celsius link and add .active to Fahrenheit link
+  celsiusTriggerClick.classList.remove("active");
+  fahrenheitTriggerClick.classList.add("active");
+
+  document.querySelector("#feels-like").innerHTML = `feels like ${Math.round(
+    (feelsLike * 9) / 5 + 32
+  )}°`;
+}
+
+function convertToCelsius(event) {
+  let currentTemperature = document.querySelector("#current-temperature");
+  currentTemperature.innerHTML = `${Math.round(celsiusTemp)}°`;
+
+  // remove .active from Fahrenheit link and add .active to Celsius link
+  fahrenheitTriggerClick.classList.remove("active");
+  celsiusTriggerClick.classList.add("active");
+
+  document.querySelector("#feels-like").innerHTML = `feels like ${Math.round(
+    feelsLike
+  )}°`;
+}
+
 let locationSearch = document.querySelector("form");
 locationSearch.addEventListener("submit", handleSubmit);
 
 let locationButton = document.querySelector("#location-icon");
 locationButton.addEventListener("click", locate);
 
+let fahrenheitTriggerClick = document.querySelector("#fahrenheit-link");
+fahrenheitTriggerClick.addEventListener("click", convertToFahrenheit);
+
+let celsiusTriggerClick = document.querySelector("#celsius-link");
+celsiusTriggerClick.addEventListener("click", convertToCelsius);
+
+let celsiusTemp = null;
+let feelsLike = null;
+
 search("Berlin");
-
-// function changeToFahrenheit() {
-//   let fahrenheitTemp = `50°F`;
-//   let currentTemperature = document.querySelector("#current-temperature");
-//   currentTemperature.innerHTML = `${fahrenheitTemp}`;
-// }
-// let fahrenheitTriggerClick = document.querySelector("#fahrenheit");
-// fahrenheitTriggerClick.addEventListener("click", changeToFahrenheit);
-
-// function changeToCelsius() {
-//   let celsiusTemp = `10°C`;
-//   let currentTemperature = document.querySelector("#current-temperature");
-//   currentTemperature.innerHTML = `${celsiusTemp}`;
-// }
-// let celsiusTriggerClick = document.querySelector("#celsius");
-// celsiusTriggerClick.addEventListener("click", changeToCelsius);

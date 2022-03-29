@@ -32,18 +32,16 @@ ul {
   padding: 0;
 }
 
-.celsius {
-  color: #9d53c3;
-}
-
 .celsius-fahrenheit {
   font-size: 18px;
   font-weight: bold;
   text-align: right;
 }
 
-.celsius-fahrenheit:hover {
-  cursor: pointer;
+.celsius-fahrenheit .active {
+  color: #9d53c3;
+  cursor: default;
+  font-size: 22px;
 }
 
 .credits {
@@ -90,10 +88,6 @@ ul {
   font-size: 100px;
   position: relative;
   top: -15px;
-}
-
-.fahrenheit:hover {
-  color: #9d53c3;
 }
 
 .location-icon {
