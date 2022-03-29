@@ -1,38 +1,13 @@
-function showCurrentTime() {
-  let now = new Date();
-  let hour = ("0" + now.getHours()).slice(-2);
-  let minutes = ("0" + now.getMinutes()).slice(-2);
-  let currentTime = document.querySelector("#time");
-  currentTime.innerHTML = `${hour}:${minutes}`;
-}
-
-function showCurrentDate() {
-  let now = new Date();
-  let weekday = now.getDay();
+function updateTimestamp(timestamp) {
+  let date = new Date(timestamp);
+  let hours = date.getHours();
+  // ("0" + now.getHours()).slice(-2)
+  let minutes = date.getMinutes();
+  // ("0" + now.getMinutes()).slice(-2);
+  let weekday = date.getDay();
   let weekdays = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-  let month = now.getMonth();
-  let months = [
-    "Jan",
-    "Feb",
-    "Mar",
-    "Apr",
-    "May",
-    "Jun",
-    "Jul",
-    "Aug",
-    "Sep",
-    "Oct",
-    "Nov",
-    "Dec",
-  ];
-  let currentDate = document.querySelector("#current-date");
-  currentDate.innerHTML = `${weekdays[weekday]} ${now.getDate()} ${
-    months[month]
-  }`;
+  return `${weekdays[weekday]} ${hours}:${minutes}`;
 }
-
-showCurrentDate();
-showCurrentTime();
 
 function search(city) {
   let apiKey = "d4e08a0b9b2ea184fab7dbd303ce7427";
@@ -41,7 +16,6 @@ function search(city) {
 }
 
 function handleSubmit(event) {
-  debugger;
   event.preventDefault();
   let city = document.querySelector("#city-input").value;
   search(city);
@@ -62,6 +36,19 @@ function updateLocationAndWeatherConditions(response) {
   document.querySelector("#min-max").innerHTML = `${Math.round(
     response.data.main.temp_min
   )}°/${Math.round(response.data.main.temp_max)}°`;
+
+  //update timestamp
+  let currentDateAndTime = document.querySelector("#current-date");
+  currentDateAndTime.innerHTML = updateTimestamp(response.data.dt * 1000);
+
+  // update weather icon
+  let mainIcon = document.querySelector("#main-icon");
+  let iconCode = response.data.weather[0].icon;
+  mainIcon.setAttribute(
+    "src",
+    `https://openweathermap.org/img/wn/${iconCode}@2x.png`
+  );
+  mainIcon.setAttribute("alt", response.data.weather[0].description);
 }
 
 function locate(location) {

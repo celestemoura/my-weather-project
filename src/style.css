@@ -89,7 +89,7 @@ ul {
   font-family: "Hubballi", cursive;
   font-size: 100px;
   position: relative;
-  top: -20px;
+  top: -15px;
 }
 
 .fahrenheit:hover {
@@ -105,8 +105,8 @@ ul {
   cursor: pointer;
 }
 
-.main-emoji {
-  font-size: 60px;
+.main-icon {
+  width: 100px;
   position: relative;
   right: 60px;
   top: -50px;
