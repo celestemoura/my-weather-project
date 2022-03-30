@@ -51,11 +51,11 @@ function updateLocationAndWeatherConditions(response) {
     windSpeed
   )} km/h`;
 
-  minMax = `${Math.round(response.data.main.temp_min)}°/${Math.round(
-    response.data.main.temp_max
-  )}°`;
-
-  document.querySelector("#min-max").innerHTML = minMax;
+  minTemperatureCelsius = response.data.main.temp_min;
+  maxTemperatureCelsius = response.data.main.temp_max;
+  document.querySelector("#min-max").innerHTML = `${Math.round(
+    minTemperatureCelsius
+  )}°/${Math.round(maxTemperatureCelsius)}°`;
 
   //update timestamp
   let currentDateAndTime = document.querySelector("#current-date");
@@ -100,14 +100,13 @@ function convertToFahrenheit(event) {
     (feelsLike * 9) / 5 + 32
   )}°`;
 
-  document.querySelector("#min-max").innerHTML = minMax;
+  // convert min/max temperatures
+  minTemperatureFahrenheit = (minTemperatureCelsius * 9) / 5 + 32;
+  maxTemperatureFahrenheit = (maxTemperatureCelsius * 9) / 5 + 32;
+  document.querySelector("#min-max").innerHTML = `${Math.round(
+    minTemperatureFahrenheit
+  )}°/${Math.round(maxTemperatureFahrenheit)}°`;
 }
-
-// // minMax = `${response.data.main.temp_min}/${response.data.main.temp_max}`;
-//   document.querySelector("#min-max").innerHTML = `${Math.round(
-//     response.data.main.temp_min
-//   )}°/${Math.round(response.data.main.temp_max)}°`;
-// //
 
 function convertToCelsius(event) {
   let currentTemperature = document.querySelector("#current-temperature");
@@ -120,6 +119,10 @@ function convertToCelsius(event) {
   document.querySelector("#feels-like").innerHTML = `feels like ${Math.round(
     feelsLike
   )}°`;
+
+  document.querySelector("#min-max").innerHTML = `${Math.round(
+    minTemperatureCelsius
+  )}°/${Math.round(maxTemperatureCelsius)}°`;
 }
 
 let locationSearch = document.querySelector("form");
@@ -136,6 +139,7 @@ celsiusTriggerClick.addEventListener("click", convertToCelsius);
 
 let celsiusTemp = null;
 let feelsLike = null;
-let minMax = null;
+let minTemperatureCelsius = null;
+let maxTemperatureCelsius = null;
 
 search("Berlin");
