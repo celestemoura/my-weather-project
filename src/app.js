@@ -45,9 +45,17 @@ function updateLocationAndWeatherConditions(response) {
   document.querySelector("#sky").innerHTML =
     response.data.weather[0].description;
 
-  document.querySelector("#min-max").innerHTML = `${Math.round(
-    response.data.main.temp_min
-  )}°/${Math.round(response.data.main.temp_max)}°`;
+  // wind speed from m/s into km/h
+  let windSpeed = response.data.wind.speed * 3.6;
+  document.querySelector("#wind-speed").innerHTML = `wind: ${Math.round(
+    windSpeed
+  )} km/h`;
+
+  minMax = `${Math.round(response.data.main.temp_min)}°/${Math.round(
+    response.data.main.temp_max
+  )}°`;
+
+  document.querySelector("#min-max").innerHTML = minMax;
 
   //update timestamp
   let currentDateAndTime = document.querySelector("#current-date");
@@ -91,7 +99,15 @@ function convertToFahrenheit(event) {
   document.querySelector("#feels-like").innerHTML = `feels like ${Math.round(
     (feelsLike * 9) / 5 + 32
   )}°`;
+
+  document.querySelector("#min-max").innerHTML = minMax;
 }
+
+// // minMax = `${response.data.main.temp_min}/${response.data.main.temp_max}`;
+//   document.querySelector("#min-max").innerHTML = `${Math.round(
+//     response.data.main.temp_min
+//   )}°/${Math.round(response.data.main.temp_max)}°`;
+// //
 
 function convertToCelsius(event) {
   let currentTemperature = document.querySelector("#current-temperature");
@@ -120,5 +136,6 @@ celsiusTriggerClick.addEventListener("click", convertToCelsius);
 
 let celsiusTemp = null;
 let feelsLike = null;
+let minMax = null;
 
 search("Berlin");

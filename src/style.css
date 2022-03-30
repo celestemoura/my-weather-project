@@ -41,7 +41,7 @@ ul {
 .celsius-fahrenheit .active {
   color: #9d53c3;
   cursor: default;
-  font-size: 22px;
+  font-size: 24px;
 }
 
 .credits {
@@ -56,7 +56,7 @@ ul {
 .conditions {
   position: relative;
   right: -35px;
-  top: -128px;
+  top: -132px;
 }
 
 .container {
