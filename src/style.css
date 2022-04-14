@@ -44,6 +44,12 @@ ul {
   font-size: 24px;
 }
 
+.conditions {
+  position: relative;
+  right: -50px;
+  top: -145px;
+}
+
 .credits {
   background: transparent;
   border: none;
@@ -51,12 +57,6 @@ ul {
   left: -38px;
   position: relative;
   top: 75px;
-}
-
-.conditions {
-  position: relative;
-  right: -35px;
-  top: -132px;
 }
 
 .container {
@@ -87,7 +87,12 @@ ul {
   font-family: "Hubballi", cursive;
   font-size: 100px;
   position: relative;
+  text-align: center;
   top: -15px;
+}
+
+.forecast-icon {
+  width: 40px;
 }
 
 .location-icon {
@@ -100,22 +105,10 @@ ul {
 }
 
 .main-icon {
-  width: 100px;
+  width: 120px;
   position: relative;
-  right: 60px;
+  right: 70px;
   top: -50px;
-}
-
-.movie-of-the-day {
-  background: transparent;
-  border: none;
-  font-family: "Hubballi", cursive;
-  font-size: 14px;
-  left: -18px;
-  position: relative;
-  text-align: center;
-  top: 25px;
-  width: 200px;
 }
 
 .search-button {
@@ -152,53 +145,15 @@ ul {
   background: white;
 }
 
-.forecast-day-1 {
-  right: -10px;
-  position: relative;
-  text-align: center;
-  width: fit-content;
-}
-
-.forecast-day-2 {
-  right: -100px;
-  position: relative;
-  text-align: center;
-  width: fit-content;
-}
-
-.forecast-day-3 {
-  right: -170px;
-  position: relative;
-  text-align: center;
-  width: fit-content;
-}
-
-.forecast-day-4 {
-  right: -240px;
-  position: relative;
-  text-align: center;
-  width: fit-content;
-}
-
-.forecast-day-5 {
-  right: -330px;
-  position: relative;
-  text-align: center;
-  width: fit-content;
-}
-
 .today {
-  font-size: 12px;
+  font-size: 14px;
   padding: 0px;
   position: relative;
-  right: -10px;
   text-align: center;
   top: 20px;
 }
 
 .weekly-forecast {
-  font-size: 18px;
-  position: relative;
+  font-size: 16px;
   text-align: center;
-  top: 80px;
 }
