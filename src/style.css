@@ -51,8 +51,6 @@ ul {
 }
 
 .credits {
-  background: transparent;
-  border: none;
   font-size: 10px;
   left: -38px;
   position: relative;
@@ -156,4 +154,51 @@ ul {
 .weekly-forecast {
   font-size: 16px;
   text-align: center;
+}
+
+@media (max-width: 576px) {
+  form {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .celsius-fahrenheit .active {
+    font-size: 20px;
+  }
+
+  .celsius-fahrenheit {
+    font-size: 14px;
+  }
+
+  .container {
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+  }
+
+  .credits {
+    top: 35px;
+  }
+
+  .location-icon {
+    padding-right: 5px;
+  }
+
+  .search-button {
+    font-size: 10px;
+    margin-right: 3px;
+  }
+
+  .search-field {
+    font-size: 10px;
+    margin-right: 3px;
+    padding-right: 0;
+  }
+
+  .today {
+    height: 270px;
+  }
+
+  .weekly-forecast {
+    padding: 10px;
+  }
 }

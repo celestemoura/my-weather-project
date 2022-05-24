@@ -20,16 +20,30 @@ function formatDay(timestamp) {
   return weekdays[day];
 }
 
+function handleErrors() {
+  alert("No matches!");
+}
+
 function search(city) {
   let apiKey = "d4e08a0b9b2ea184fab7dbd303ce7427";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-  axios.get(apiUrl).then(updateLocationAndWeatherConditions);
+  fetch(apiUrl).then(function (response) {
+    if (!response.ok) {
+      handleErrors();
+    } else {
+      axios.get(apiUrl).then(updateLocationAndWeatherConditions);
+    }
+  });
 }
 
 function handleSubmit(event) {
   event.preventDefault();
   let city = document.querySelector("#city-input").value;
-  search(city);
+  if (city.length > 0) {
+    search(city);
+  } else {
+    alert("Please enter a city");
+  }
 }
 
 function getForecast(coordinates) {

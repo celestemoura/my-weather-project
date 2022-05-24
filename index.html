@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Current Weather</title>
+     <meta name="description" content="Current weather worldwide + conditions and weekly weekly forecast" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -31,6 +32,7 @@
 
   <body>
     <div class="container">
+
       <div class="row">
         <div class="col-8">
           <form autocomplete="off">
@@ -41,12 +43,18 @@
               class="search-field"
               id="city-input"
             />
-            <input type="submit" value="Search" class="search-button" />
+            <input
+              type="submit"
+              value="Search"
+              class="search-button"
+              title="Search"
+            />
           </form>
         </div>
         <div class="col-4 celsius-fahrenheit">
-          <a href="#" id="celsius-link" class="active">°C</a>|<a
+          <a href="#" id="celsius-link" class="active" title="Celsius">°C</a>|<a
             href="#"
+            title="Fahrenheit"
             id="fahrenheit-link"
             >°F</a
           >
@@ -54,24 +62,19 @@
       </div>
 
       <div class="row">
-        <div class="col-12 current-location">
+        <div class="col current-location">
           <span id="city-country">Berlin</span>
         </div>
       </div>
 
       <div class="row">
-        <div class="col-12 today" id="today">
+        <div class="col today" id="today">
           <span id="current-date"> </span>
-          <span class="current-weather">
+          <span>
             <div class="current-temperature" id="current-temperature"></div>
             <img class="main-icon" id="main-icon" />
             <ul class="conditions">
-              <li id="min-max">
-                <span class="min-temperature">3°</span>/<span
-                  class="max-temperature"
-                  >9°</span
-                >
-              </li>
+              <li id="min-max">3°/>9°</li>
               <li id="feels-like"></li>
               <li id="wind-speed">wind speed</li>
               <li id="sky"></li></ul
@@ -80,68 +83,20 @@
       </div>
 
       <div class="row">
-        <div class="weekly-forecast" id="weekly-forecast"></div>
+        <div class="col weekly-forecast" id="weekly-forecast"></div>
       </div>
-      <!-- <div class="card movie-of-the-day">
-        <div class="card-body">
-          🎬 Today's pick: 🍿<br />
-          <a href="https://mubi.com/films/short-term-12" target="_blank"
-            ><em>Short Term 12</em><br />by Destin Daniel Cretton</a
+      <div class="credits">
+        <p>
+          <a
+            href="https://github.com/celestemoura/my-weather-project"
+            title="GitHub repository"
+            target="_blank"
+            >Open source code</a
           >
-        </div>
-      </div> -->
-      <div class="card credits">
-        <div class="card-body">
-          <p>
-            <a
-              href="https://github.com/celestemoura/my-weather-project"
-              target="_blank"
-              >Open source code</a
-            >
-            by Celeste Moura
-          </p>
-        </div>
+          by Celeste Moura
+        </p>
       </div>
     </div>
     <script src="src/app.js"></script>
   </body>
 </html>
-
-<!--<div class="row">
-        <div class="col-6 weekly-forecast">
-          <div class="forecast-day-1">
-            Thu<br />-53°/-36°<br />
-            <img
-              class="forecast-icon-1"
-              src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
-            />
-          </div>
-          <div class="forecast-day-2">
-            Fri<br />4°/13° <br />
-            <img
-              class="forecast-icon-1"
-              src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
-            />
-          </div>
-          <div class="forecast-day-3">
-            Sat<br />1°/12°<br />
-            <img
-              class="forecast-icon-1"
-              src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
-            />
-          </div>
-          <div class="forecast-day-4">
-            Sun<br />1°/11°<br />
-            <img
-              class="forecast-icon-1"
-              src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
-            />
-          </div>
-          <div class="forecast-day-5">
-            Mon<br />-1°/13° <br />
-            <img
-              class="forecast-icon-1"
-              src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
-            />
-          </div>
-        </div>-->
